@@ -11,11 +11,11 @@ This repository hosts an interactive quiz notebook built with `ipywidgets` and r
 ## 📦 Project Structure
 
 ```
+🗂️ Repo Structure:
 .
-├── voila/
-│   └── render/
-│       └── Test-Your_Understanding-1.ipynb
-├── Dockerfile
+├── Test-Your_Understanding-1.ipynb
+├── Binder/
+│   └── Dockerfile
 ├── requirements.txt
 └── README.md
 ```
@@ -34,6 +34,17 @@ Visit: [http://localhost:8888](http://localhost:8888)
 pip install voila ipywidgets
 voila voila/render/Test-Your_Understanding-1.ipynb
 ```
+🔍 URL Explanation:
+
+- `urlpath=voila/render/` tells Binder to launch the notebook using **Voila**.
+- Since the notebook is at the repo root, the path is just the notebook filename:
+  `Test-Your_Understanding-1.ipynb`
+
+📌 Summary:
+
+- The correct Binder launch URL is:
+  
+https://mybinder.org/v2/gh/hossainms/SSH_Key/main?urlpath=voila/render/Test-Your_Understanding-1.ipynb
 
 ## 📚 Requirements
 
