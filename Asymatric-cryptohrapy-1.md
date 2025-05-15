@@ -127,3 +127,9 @@ gpg --armor --export youremail@example.com > my_public_key.asc
 ## ✉️ What cryptographic adventures will *you* embark on?
 
 With the power of asymmetric encryption, even Blake and Ahmed can whisper across continents, confident that their secrets are **mathematically invincible**.
+
+## ✉️ Test Your Conceptual Understanding on Private and Public Keys
+
+Scenario: Ahmed sends letter-D to Blake with digital signature. Given the context, now answer the following questions to demonstrate your understanding of asymmetric cryptography:
+
+## [**Start the Test**](https://mybinder.org/v2/gh/hossainms/SSH_Key/main?urlpath=voila/render/Test-Your_Understanding-1.ipynb)
