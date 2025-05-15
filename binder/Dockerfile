@@ -18,4 +18,4 @@ USER jovyan
 RUN rm -rf /home/jovyan/.cache /home/jovyan/.local/share/jupyter/lab/staging
 
 # Default command to run Voila
-CMD ["voila", "your_notebook.ipynb", "--port=8888", "--no-browser", "--Voila.base_url=/", "--Voila.trust_xheaders=True"]
+CMD ["voila", "quiz.ipynb", "--port=8888", "--no-browser", "--Voila.base_url=/", "--Voila.trust_xheaders=True"]
