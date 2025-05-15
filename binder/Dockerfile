@@ -1,15 +1,13 @@
-FROM jupyter/voila
+FROM jupyter/base-notebook
 
-# Install only necessary Python packages
-RUN pip install --no-cache-dir \
-    voila \
-    ipywidgets
+# Install Voila and ipywidgets
+RUN pip install --no-cache-dir voila ipywidgets
 
-# Copy your repo contents (including notebook)
+# Copy all repo contents
 COPY . /home/jovyan
 
 # Set working directory
 WORKDIR /home/jovyan
 
-# Clean up to reduce image size
+# Clean up cache to reduce image size
 RUN rm -rf ~/.cache
