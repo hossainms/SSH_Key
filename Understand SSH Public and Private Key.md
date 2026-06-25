@@ -1,13 +1,5 @@
 # 🔐 The Secret Letters: A Cryptographic Adventure
 
-> 📌 **Scope:** This chapter builds intuition for **public/private-key
-> cryptography in general**, using message encryption (GPG) as the example —
-> *encrypt with the recipient's public key, sign with your private key*. SSH login
-> uses the same key pair for a **different** job: signing a one-time challenge to
-> prove your identity (it does **not** encrypt a message to the server). For how
-> SSH specifically applies these keys, read
-> [How SSH Authentication Works](./How%20SSH%20Authentication%20Works.md).
-
 ## A Tale of Two Friends and Their Digital Secrets
 
 In the bustling streets of Dhaka, **Blake** closed his laptop with a satisfied smile. Across the globe in **Chicago**, **Ahmed** was just starting his day. Despite the vast distance between **Bangladesh** and **America**, these two friends had found a way to share their most confidential thoughts with absolute security.
@@ -135,6 +127,20 @@ gpg --armor --export youremail@example.com > my_public_key.asc
 ## ✉️ What cryptographic adventures will *you* embark on?
 
 With the power of asymmetric encryption, even Blake and Ahmed can whisper across continents, confident that their secrets are **mathematically invincible**.
+
+---
+
+## 🔗 How this applies to SSH
+
+This story used **message encryption** (the GPG model): *encrypt with the
+recipient's public key, sign with your private key.* SSH login uses the very same
+key pair for a **different** job — instead of encrypting a message to the server,
+your client **signs a one-time challenge** with your private key, and the server
+verifies it against your public key in `authorized_keys`. Same math, different
+purpose.
+
+➡️ Next: **[How SSH Authentication Works](./How%20SSH%20Authentication%20Works.md)** —
+host keys, the login handshake, and file permissions.
 
 ## ✉️ Test Your Conceptual Understanding on Private and Public Keys
 
