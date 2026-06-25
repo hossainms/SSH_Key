@@ -51,6 +51,13 @@ cat ~/.ssh/id_bigpurple.pub
 
 Paste it into GitHub under **Settings → SSH and GPG Keys → New SSH Key**.
 
+Then confirm it works:
+
+```bash
+ssh -T git@github.com
+# Expected: "Hi <username>! You've successfully authenticated, but GitHub does not provide shell access."
+```
+
 ---
 
 ### 🏰 Uploading Public Key to BigPurple (HPC)
@@ -131,6 +138,20 @@ On Windows:
 ```powershell
 Start-Service ssh-agent
 ssh-add C:\Users\you\.ssh\id_bigpurple
+```
+
+**Safir:**
+Can I make this stick so I don’t even run `ssh-add` each session?
+
+**Taysir:**
+Yes — let the config load the key into the agent automatically. Add this to the
+top of `~/.ssh/config`:
+
+```ini
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes        # macOS only — remembers the passphrase in the Keychain
+  IdentityFile ~/.ssh/id_bigpurple
 ```
 
 ---

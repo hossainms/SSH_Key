@@ -1,5 +1,13 @@
 # 🔐 The Secret Letters: A Cryptographic Adventure
 
+> 📌 **Scope:** This chapter builds intuition for **public/private-key
+> cryptography in general**, using message encryption (GPG) as the example —
+> *encrypt with the recipient's public key, sign with your private key*. SSH login
+> uses the same key pair for a **different** job: signing a one-time challenge to
+> prove your identity (it does **not** encrypt a message to the server). For how
+> SSH specifically applies these keys, read
+> [How SSH Authentication Works](./How%20SSH%20Authentication%20Works.md).
+
 ## A Tale of Two Friends and Their Digital Secrets
 
 In the bustling streets of Dhaka, **Blake** closed his laptop with a satisfied smile. Across the globe in **Chicago**, **Ahmed** was just starting his day. Despite the vast distance between **Bangladesh** and **America**, these two friends had found a way to share their most confidential thoughts with absolute security.

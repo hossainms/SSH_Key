@@ -52,33 +52,33 @@ ssh-copy-id -i ~/.ssh/id_ed25519_mykey.pub your_username@bigpurple.edu
 ## 🖥️ 3. Accessing from Taysir’s Machine
 
 **Safir:**  
-"I’m at your place. Can I SSH from your machine?"
+"I’m at your place. Can I SSH to BigPurple from your machine?"
 
 **Taysir:**  
-"Only if you copy your private key here temporarily, and don't forget to delete it after."
+"Don’t copy your private key onto someone else’s computer — a private key should
+never leave your own machine. Use one of these instead."
 
-**Steps:**
-
-1. Copy key to Taysir’s machine (from your machine):
+**Option A — Generate a separate key for this device (preferred):**
 ```bash
-scp ~/.ssh/id_ed25519_bigpurple* taysir@remote-machine:~/.ssh/
+# On Taysir's machine, make a NEW key that is yours-on-this-device
+ssh-keygen -t ed25519 -C "safir@taysir-laptop" -f ~/.ssh/id_ed25519_safir
+ssh-copy-id -i ~/.ssh/id_ed25519_safir.pub your_username@bigpurple.edu
+```
+Each device gets its own key, so you can revoke one without touching the others.
+
+**Option B — Hop through your own machine (no key copy):**
+```bash
+# From Taysir's machine, jump via your laptop which holds the key
+ssh -J you@your-laptop your_username@bigpurple.edu
 ```
 
-2. Set proper permissions:
+**Option C — Agent forwarding (only on machines you trust):**
 ```bash
-chmod 600 ~/.ssh/id_ed25519_bigpurple
+ssh -A you@your-laptop      # forwards your agent for this session; never on shared/untrusted hosts
 ```
 
-3. Add key to `ssh-agent`:
-```bash
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519_bigpurple
-```
-
-4. When done, delete the private key:
-```bash
-rm ~/.ssh/id_ed25519_bigpurple
-```
+> 🔐 Rule of thumb: **add a new key, don’t move an old one.** Copying private keys
+> around multiplies the places they can be stolen from.
 
 ---
 

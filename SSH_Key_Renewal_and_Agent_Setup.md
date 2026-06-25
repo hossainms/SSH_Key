@@ -73,6 +73,21 @@ cat ~/id_ed25519_saf_bigpurple.pub >> ~/.ssh/authorized_keys
 
 ---
 
+#### 🧹 Step 4b: Revoke the OLD key (don’t skip this)
+
+Generating a new key does **not** disable the old one — the old public key still
+grants access until you remove it.
+
+- **On the server:** edit `~/.ssh/authorized_keys` and delete the line for the old key.
+- **On GitHub:** **Settings → SSH and GPG Keys** → delete the old key entry.
+
+```bash
+# Confirm only the new key remains
+ssh your_username@bigpurple.edu "cat ~/.ssh/authorized_keys"
+```
+
+---
+
 #### ⚙️ Step 5: Configure SSH for Simpler Login
 
 Edit your `~/.ssh/config`:
@@ -83,7 +98,7 @@ Host bigpurple
     User your_username
     IdentityFile ~/.ssh/id_ed25519_saf_bigpurple
     Port 22
-    ForwardAgent yes
+    ForwardAgent yes        # only enable for hosts you fully trust; prefer ProxyJump otherwise
     Compression yes
     TCPKeepAlive yes
     ServerAliveInterval 60
