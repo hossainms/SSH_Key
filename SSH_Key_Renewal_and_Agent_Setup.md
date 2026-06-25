@@ -79,7 +79,7 @@ Edit your `~/.ssh/config`:
 
 ```ssh
 Host bigpurple
-    HostName safir_bigpurple
+    HostName bigpurple.edu
     User your_username
     IdentityFile ~/.ssh/id_ed25519_saf_bigpurple
     Port 22
